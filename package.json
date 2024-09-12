@@ -1,5 +1,5 @@
 {
-  "name": "foa",
+  "name": "workspace",
   "private": true,
   "scripts": {
     "build": "turbo build",

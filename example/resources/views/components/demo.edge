@@ -1,0 +1,27 @@
+<div class="bg-card text-card-foreground border rounded-md grid grid-cols-5">
+  <div class="col-span-2 border-r p-8">
+    @!edgewire('search-users')
+  </div>
+  <div class="col-span-3">
+    <div class="border-b p-4">
+      <pre><code class="language-html">{{ '<input wire:model.live="search" />' }}
+
+{{ '@each(user in users)' }}
+  {{ '<div>' }}
+    @{{ user.name }}
+  {{ '</div>' }}
+{{ '@end' }}</code></pre>
+    </div>
+    <div class="p-4">
+      <pre><code class="language-typescript">export default class SearchUsers extends Component {
+  query = ''
+
+  async render() {
+    return view('search-users', {
+      users: await User.search(this.query),
+    })
+  }
+}</code></pre>
+    </div>
+  </div>
+</div>

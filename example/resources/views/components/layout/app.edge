@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {{ title || "Your default title" }}
+    </title>
+    @if ($slots.meta)
+      {{{ await $slots.meta() }}}
+    @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+    />
+    @edgewireScripts()
+    </head>
+    <body class="dark bg-background text-foreground min-h-screen">
+      <div>
+        <a href="/" wire:navigate>Home</a>
+        <a href="/demo" wire:navigate>Demo</a>
+        <a href="/docs" wire:navigate>Docs</a>
+      </div>
+
+      {{{ await $slots.main() }}}
+    </body>
+  </html>

@@ -1,0 +1,18 @@
+<div>
+  @!component('components/input', {
+    'wire:model.live': 'query',
+    'placeholder': 'Search...'
+  })
+
+  <div class="space-y-4 mt-5">
+    @each (user in users)
+      <div class="flex items-center gap-4">
+        <div class="w-10 aspect-square rounded overflow-hidden">
+          <img src="{{ user.avatar }}" />
+        </div>
+        {{ user.name }}
+      </div>
+    @end
+  </div>
+</div>
+

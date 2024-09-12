@@ -1,0 +1,15 @@
+@let($attributes = $props
+  .merge({
+    class: ['card']
+  })
+  .toAttrs()
+)
+
+<div class="border rounded flex flex-col items-stretch" x-data="{ expanded: false }" {{ attributes }}>
+  <button @click="expanded = !expanded" class="py-2 px-4 text-left bg-muted text-muted-foreground">
+    {{ title }}
+  </button>
+  <div x-show="expanded" x-transition class="p-2 px-4 pb-0">
+    {{{ await $slots.main() }}}
+  </div>
+</div>

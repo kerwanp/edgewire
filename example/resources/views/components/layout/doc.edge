@@ -1,0 +1,10 @@
+@layout.app()
+  <div class="relative container flex">
+    <div class="w-[240px] top-0">
+      @!component('components/sidebar')
+    </div>
+    <main>
+      {{{ await $slots.main() }}}
+    </main>
+  </div>
+@end
